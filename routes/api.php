@@ -1,6 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
+use App\Http\Controllers\Api\CheckAuth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +16,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(["middleware" => 'check.token'], function () {
+
+    Route::controller(AuthController::class)->group(function () {
+        Route::post('login', 'login')->name('api-login');
+        Route::post('register', 'register')->name('api-register');
+    });
+});
+
+Route::group(["middleware" => 'auth:sanctum'], function () {
+
+    Route::controller(AuthController::class)->group(function () {
+        Route::post('logout', 'logout')->name('api-logout');
+    });
+
+
+    Route::controller(CheckAuth::class)->group(function () {
+        Route::get('/tokencheck', 'index')->name('api-checkauth.index');
+    });
+
 });
