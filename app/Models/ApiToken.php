@@ -16,7 +16,7 @@ class ApiToken extends Model
         if (!$token->id){
             $token->id = ApiToken::React;
             $token->name = 'ReactFront';
-            $token->token = base64_encode('oceangate');
+            $token->token = base64_encode('cateam3');
             $token->save();
         }
         return $token;

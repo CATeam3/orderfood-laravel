@@ -17,9 +17,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(AuthController::class)->group(function () {
-    Route::post('login', 'login')->name('api-login');
-    Route::post('register', 'register')->name('api-register');
+Route::group(["middleware" => 'check.token'], function () {
+
+    Route::controller(AuthController::class)->group(function () {
+        Route::post('login', 'login')->name('api-login');
+        Route::post('register', 'register')->name('api-register');
+    });
 });
 
 Route::group(["middleware" => 'auth:sanctum'], function () {
@@ -32,7 +35,6 @@ Route::group(["middleware" => 'auth:sanctum'], function () {
         Route::get('user', 'show')->name('api-user');
         Route::patch('user/update', 'update')->name('api-user.update');
     });
-
 
 
     Route::controller(CheckAuth::class)->group(function () {
