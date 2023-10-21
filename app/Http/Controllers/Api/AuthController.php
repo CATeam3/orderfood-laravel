@@ -63,7 +63,7 @@ class AuthController extends BaseController
 //        $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
         $success['token'] = $user->createToken($request->device)->plainTextToken;
-        $success['name'] = $user->username;
+        $success['email'] = $user->email;
 
         return $this->sendResponse($success, 'User registered successfully.', Response::HTTP_CREATED);
     }

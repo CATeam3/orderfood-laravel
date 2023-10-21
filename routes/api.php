@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\CheckAuth;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,12 @@ Route::group(["middleware" => 'auth:sanctum'], function () {
     Route::controller(AuthController::class)->group(function () {
         Route::post('logout', 'logout')->name('api-logout');
     });
+
+    Route::controller(UserController::class)->group(function () {
+        Route::get('user', 'show')->name('api-user');
+        Route::patch('user/update', 'update')->name('api-user.update');
+    });
+
 
 
     Route::controller(CheckAuth::class)->group(function () {
