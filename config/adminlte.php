@@ -289,36 +289,28 @@ return [
     |
     */
 
-//    'menu' => [
-//        'MAIN NAVIGATION',
-//        [
-//            'text' => 'Blog',
-//            'url'  => 'admin/blog',
-//        ],
-//        [
-//            'text' => 'Pages',
-//            'url'  => 'admin/pages',
-//            'icon' => 'fas fa-fw fa-file',
-//        ],
-//        [
-//            'text'   => 'Show my website',
-//            'url'    => '/',
-//            'target' => '_blank',
-//        ],
-//        [
-//            'header' => 'ACCOUNT SETTINGS',
-//        ],
-//        [
-//            'text'  => 'Profile',
-//            'route' => 'admin.profile',
-//            'icon'  => 'fas fa-fw fa-user',
-//        ],
-//        [
-//            'text'  => 'Change Password',
-//            'route' => 'admin.password',
-//            'icon'  => 'fas fa-fw fa-lock',
-//        ],
-//    ],
+    'menu' => [
+        // Navbar items:
+        [
+            'type' => 'navbar-search',
+            'text' => 'search',
+            'topnav_right' => true,
+        ],
+        [
+            'type' => 'fullscreen-widget',
+            'topnav_right' => true,
+        ],
+        [
+            'type' => 'darkmode-widget',
+            'topnav_right' => true,
+        ],
+
+        // Sidebar items:
+        [
+            'type' => 'sidebar-menu-search',
+            'text' => 'search',
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------

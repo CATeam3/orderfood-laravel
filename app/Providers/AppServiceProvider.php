@@ -23,13 +23,13 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Event::listen(BuildingMenu::class, function (BuildingMenu $event) {
-            $event->menu->add(
-                [
-                    'icon' => 'fas fa-chart-area',
-                    'text' => 'Dashboard',
-                    'url' => '/home'
-                ]
-            );
+//            $event->menu->add(
+//                [
+//                    'icon' => 'fas fa-chart-area',
+//                    'text' => 'Dashboard',
+//                    'url' => '/home'
+//                ]
+//            );
             $event->menu->add(['header' => 'USER MANAGEMENT', 'classes' => 'font-weight-bold']);
 
             $event->menu->add(

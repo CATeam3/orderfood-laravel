@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', function () {
-    return view('home');
+    return redirect('/users');
 })->name('home')->middleware('auth');
 
 

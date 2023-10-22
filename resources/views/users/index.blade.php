@@ -24,7 +24,7 @@
                 <tr>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
-                    <td>{{ $user->role->name }}</td>
+                    <td>{{ $user->role->name ?? 'User' }}</td>
                     <td><form action="{{ route('users.destroy',$user->id) }}" method="POST">
 
                             @csrf
