@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\MenuResource;
+use App\Http\Resources\OrdersResource;
 use App\Models\Order;
 use Dotenv\Validator;
 use Illuminate\Http\Request;
@@ -41,9 +43,9 @@ class OrderController extends BaseController
      */
     public function show()
     {
-        $orders = Order::findOrFail('user_id', Auth::user()->id)->menu;
-
-        return $this->sendResponse($orders, 'Orders succesfuly fetched.');
+        $orders = Order::where('user_id', Auth::user()->id)->get();
+        $orders = OrdersResource::collection($orders);
+        return $this->sendResponse($orders, 'Order items fetched succsessfuly.');
     }
 
     /**

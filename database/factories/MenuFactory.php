@@ -18,7 +18,6 @@ class MenuFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => fake()->numberBetween(1,2),
             'category_id' => fake()->numberBetween(1,2),
             'picture' => fake()->text(),
             'name' => fake()->title(),

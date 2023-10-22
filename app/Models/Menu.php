@@ -12,14 +12,14 @@ class Menu extends Model
 {
     use HasFactory;
 
-    public function order(): BelongsTo
+    public function order(): BelongsToMany
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsToMany(Order::class);
     }
 
-    public function category() : BelongsToMany
+    public function category() : BelongsTo
     {
-        return $this->belongsToMany(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function type() : BelongsTo
