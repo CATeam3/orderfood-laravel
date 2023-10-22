@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\MenuController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Api\CheckAuth;
@@ -34,6 +36,10 @@ Route::group(["middleware" => 'auth:sanctum'], function () {
     Route::controller(UserController::class)->group(function () {
         Route::get('user', 'show')->name('api-user');
         Route::patch('user/update', 'update')->name('api-user.update');
+    });
+
+    Route::controller(MenuController::class)->group(function () {
+        Route::get('menu', 'index')->name('api-menu.index');
     });
 
 

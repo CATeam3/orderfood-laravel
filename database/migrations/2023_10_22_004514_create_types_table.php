@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Type;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -11,17 +12,25 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
-            $table->string('category_id');
-            $table->string('picture')->nullable();
             $table->string('name');
-            $table->text('description')->nullable();
-            $table->float('price');
-            $table->float('rating');
             $table->timestamps();
         });
+
+        $types = [
+            ['name' => 'Ljuto'],
+            ['name' => 'Posno'],
+            ['name' => 'Vegansko'],
+        ];
+
+        foreach ($types as $element) {
+            $type = new Type();
+            $type->name = $element['name'];
+            $type->save();
+        }
+
+
     }
 
     /**
@@ -29,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('menus');
+        Schema::dropIfExists('types');
     }
 };

@@ -12,9 +12,9 @@ class Order extends Model
 {
     use HasFactory;
 
-    public function users(): BelongsToMany
+    public function user(): BelongsTo
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class);
     }
 
     public function menu(): BelongsTo

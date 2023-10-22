@@ -11,13 +11,18 @@ class Menu extends Model
 {
     use HasFactory;
 
-    public function orders(): HasMany
+    public function order(): BelongsTo
     {
-        return $this->hasMany(Order::class);
+        return $this->belongsTo(Order::class);
     }
 
     public function category() : BelongsTo
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function type() : BelongsTo
+    {
+        return $this->belongsTo(Type::class);
     }
 }
