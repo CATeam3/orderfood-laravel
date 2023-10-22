@@ -42,6 +42,10 @@ Route::group(["middleware" => 'auth:sanctum'], function () {
         Route::get('menu', 'index')->name('api-menu.index');
     });
 
+    Route::controller(OrderController::class)->group(function () {
+       Route::post('order/new', 'store')->name('api-order.store');
+    });
+
 
     Route::controller(CheckAuth::class)->group(function () {
         Route::get('/tokencheck', 'index')->name('api-checkauth.index');

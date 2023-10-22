@@ -12,17 +12,22 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'ordertime'
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function menu(): BelongsTo
+    public function menu(): BelongsToMany
     {
-        return $this->belongsTo(Menu::class);
+        return $this->belongsToMany(Menu::class);
     }
 
-    public function status() : BelongsTo
+    public function status(): BelongsTo
     {
         return $this->belongsTo(Status::class);
     }
