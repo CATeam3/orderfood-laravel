@@ -19,11 +19,12 @@ return new class extends Migration
         });
 
         $statuses = [
-            ['name' => 'Novo'],
-            ['name' => 'U obradi'],
-            ['name' => 'Prihvaćeno'],
-            ['name' => 'Isporučeno'],
-            ['name' => 'Odbijeno'],
+            ['name' => 'Potvrđena'],
+            ['name' => 'Poništena'],
+            ['name' => 'U pripremi'],
+            ['name' => 'Spremna'],
+            ['name' => 'Dostavlja se'],
+            ['name' => 'Isporučena'],
         ];
 
         foreach ($statuses as $element) {

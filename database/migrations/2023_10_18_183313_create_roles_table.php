@@ -19,7 +19,6 @@ return new class extends Migration {
 
         $roles = [
             ['name' => 'Admin'],
-            ['name' => 'Dostavljač']
         ];
 
         foreach ($roles as $element) {

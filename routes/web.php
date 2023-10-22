@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
-Route::get('/', function() {
+Route::get('/', function () {
     return view('home');
 })->name('home')->middleware('auth');
+
+
+Route::middleware('auth')->group(function (){
+    Route::resource('users', UserController::class);
+});
