@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -14,12 +15,16 @@ class MenuResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-//        $categories = CategoryResource::collection($this->categories);
-//
-//        return [
-//            'id' => $this->id,
-//            'title' => $this->title,
-//            'categories' => $categories
-//        ];
+        $category = new CategoryResource($this->category);
+
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'picture' => $this->picture,
+            'category' => $category->name,
+            'price' => $this->price,
+            'rating' => $this->rating
+        ];
     }
 }

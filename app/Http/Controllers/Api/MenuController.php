@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\MenuResource;
 use App\Models\Menu;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class MenuController extends BaseController
     public function index(Request $request)
     {
         $menus = Menu::all();
-
+        $menus = MenuResource::collection($menus);
         return $this->sendResponse($menus, 'Menu items fetched succsessfuly.');
     }
 
