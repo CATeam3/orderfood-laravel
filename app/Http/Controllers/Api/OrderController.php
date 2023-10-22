@@ -33,15 +33,17 @@ class OrderController extends BaseController
         $order->menu()->attach($request->input('items'));
 
 
-        return $this->sendResponse($order, 'o');
+        return $this->sendResponse($order, 'Order successfuly created.');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Request $id)
+    public function show()
     {
+        $orders = Order::findOrFail('user_id', Auth::user()->id)->menu;
 
+        return $this->sendResponse($orders, 'Orders succesfuly fetched.');
     }
 
     /**

@@ -44,6 +44,7 @@ Route::group(["middleware" => 'auth:sanctum'], function () {
 
     Route::controller(OrderController::class)->group(function () {
        Route::post('order/new', 'store')->name('api-order.store');
+       Route::get('order/show', 'show')->name('api-order.show');
     });
 
 
