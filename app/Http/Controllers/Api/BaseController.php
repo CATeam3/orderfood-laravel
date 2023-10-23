@@ -21,7 +21,7 @@ class BaseController extends Controller
             'message' => $message,
         ];
 
-        return response()->json($response, $code)->header('Access-Control-Allow-Origin', 'localhost')
+        return response()->json($response, $code)->header('Access-Control-Allow-Origin', 'https://rzq1yn.ictcortex.me')
             ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
             ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     }
@@ -43,7 +43,7 @@ class BaseController extends Controller
             $response['data'] = $errorMessages;
         }
 
-        return response()->json($response, $code)->header('Access-Control-Allow-Origin', 'localhost')
+        return response()->json($response, $code)->header('Access-Control-Allow-Origin', 'https://rzq1yn.ictcortex.me')
             ->header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
             ->header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     }
